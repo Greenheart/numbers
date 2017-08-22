@@ -44,10 +44,10 @@ document.addEventListener('DOMContentLoaded', function () {
         show(primeNo.parentElement)
         hide(infoIcon)
         hide(checkIcon)
-        game.primes.question = getRandomOddInt(game.primes.min, game.primes.max)
+        game.primes.question = randomInt(game.primes.min, game.primes.max)
         // Avoid the same number from coming too often.
         while (game.primes.recent.indexOf(game.primes.question) > -1) {
-            game.primes.question = getRandomOddInt(game.primes.min, game.primes.max)
+            game.primes.question = randomInt(game.primes.min, game.primes.max)
         }
         // Keep the recent numbers.
         game.primes.recent = game.primes.recent.slice(Math.max(game.primes.recent.length - 9, 1)).concat(game.primes.question)
