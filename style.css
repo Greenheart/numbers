@@ -72,6 +72,7 @@ button {
 #percentage i {
     display: inline;
     margin-left: 0 !important;
+    margin-right: 6px !important;
 }
 
 
@@ -79,6 +80,11 @@ button {
 #percentage > span > span {
     display: inline-block;
     margin-top: 6px;
+}
+
+.stats.wide #streak,
+.stats.wide #percentage {
+    width: 100px;
 }
 
 #streak {

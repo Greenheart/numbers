@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function () {
         primes: {
             question: undefined,
             recent: [],
+            streak: 0,
+            correct: 0,
+            totalQuestions: 0,
             min: 2,
             max: 197    // IDEA: Change this for new difficulties
         }
@@ -27,6 +30,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var primeResultText = find('#primes-container .result span')
     var primeResultFooter = find('#primes-container .result-footer')
     var primeFactors = find('#prime-factors')
+    var solutionStreak = find('#streak > span > span')
+    var solutionPercentage = find('#percentage > span > span')
     var primeYes = find('#prime-yes')
     var primeNo = find('#prime-no')
     var primeNext = find('#prime-next')
@@ -42,6 +47,9 @@ document.addEventListener('DOMContentLoaded', function () {
         show(primeNo.parentElement)
         hide(infoIcon)
         hide(checkIcon)
+
+        game.primes.totalQuestions++
+
         game.primes.question = randomInt(game.primes.min, game.primes.max)
         // Avoid the same number from coming too often.
         while (game.primes.recent.indexOf(game.primes.question) > -1) {
@@ -55,6 +63,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function answer (guess) {
         // Reser previous results
         primeResult.classList.remove('correct', 'wrong')
+        if (game.primes.totalQuestions === 1) {
+            // This is used when displaying tooltips.
+            find('.stats.wide').classList.remove('wide')
+        }
         primeResultText.innerText = ''
         primeFactors.innerText = ''
 
@@ -63,9 +75,12 @@ document.addEventListener('DOMContentLoaded', function () {
             primeResult.classList.add('correct')
             primeResultText.innerText += 'Correct! '
             show(checkIcon)
+            game.primes.correct++
+            game.primes.streak++
         } else {
             primeResult.classList.add('wrong')
             show(infoIcon)
+            game.primes.streak = 0
         }
 
         if (isPrime(game.primes.question)) {
@@ -74,6 +89,8 @@ document.addEventListener('DOMContentLoaded', function () {
             primeResultText.innerText += game.primes.question + ' is NOT a prime number.'
             primeFactors.innerText = 'Prime factors: ' + getPrimeFactors(game.primes.question).join(', ')
         }
+        solutionPercentage.innerText = (game.primes.correct / game.primes.totalQuestions).toLocaleString('en', { style: 'percent' })
+        solutionStreak.innerText = game.primes.streak
 
         hide(primeNo.parentElement)
         show(primeResultFooter)
