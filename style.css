@@ -101,8 +101,9 @@ button {
     background-color: #F44336;
 }
 
-#prime-factors {
-    float: left;
+.result-footer {
+    text-align: left;
+    margin-left: 12px;
 }
 
 #prime-next {
@@ -142,6 +143,7 @@ button {
 
 @media screen and (max-width: 480px) {
     i.left {
+        margin-left: 6px !important;
         margin-right: 6px !important;
     }
 
@@ -162,10 +164,26 @@ button {
     #primes-container .result span {
         font-size: 14px;
     }
+
+    .result > p > i.left {
+        margin-left: 6px !important;
+        margin-right: 0 !important;
+    }
 }
 
 @media screen and (max-width: 370px) {
     #primes-container .result span {
-        font-size: 12px;
+        font-size: 11.4px;
+    }
+
+    main,
+    #primes-container {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 315px) {
+    #primes-container .result span {
+        font-size: 10.8px;
     }
 }
