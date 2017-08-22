@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
             primeResultText.innerText += game.primes.question + ' is NOT a prime number.'
             primeFactors.innerText = 'Prime factors: ' + getPrimeFactors(game.primes.question).join(', ')
         }
-        solutionPercentage.innerText = (game.primes.correct / game.primes.totalQuestions).toLocaleString('en', { style: 'percent' })
+        solutionPercentage.innerText = (game.primes.correct / game.primes.totalQuestions).toFixed(2) * 100 + '%'
         solutionStreak.innerText = game.primes.streak
 
         hide(primeNo.parentElement)
