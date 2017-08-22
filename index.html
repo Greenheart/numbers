@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+        <link rel="stylesheet" href="style.css">
+        <title>Numbers</title>
+    </head>
+    <body>
+        <main>
+            <section id="start">
+                <h1>Numbers</h1>
+                <p>Select a game mode</p>
+                <button class="btn" id="gamemode-primes">Primes < 200</button>
+                <div class="footer">
+                    <small>
+                        <p>&copy; 2017 MUG: Matematiker utan gränser</p>
+                    </small>
+                </div>
+            </section>
+
+            <section id="primes-container" class="hidden">
+                <h1>Prime or not?</h1>
+                <h2 class="question"></h2>
+
+                <div class="primes-footer">
+                    <div class="footer-content">
+                        <div class="options">
+                            <button class="btn btn-large green" id="prime-yes">Prime!</button>
+                            <button class="btn btn-large red" id="prime-no">Not</button>
+                        </div>
+                        <div class="result">
+                            <p>
+                                <i id="check" class="material-icons small left">check</i>
+                                <i id="info" class="material-icons small left">info_outline</i>
+                                <span></span>
+                            </p>
+                        </div>
+                        <div class="result-footer">
+                            <span id="prime-factors"></span>
+                            <button id="prime-next" class="waves-effect waves-light btn">Next<i class="material-icons right">arrow_forward</i></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+        <script src="main.js" charset="utf-8"></script>
+    </body>
+</html>

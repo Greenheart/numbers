@@ -1,0 +1,132 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    letter-spacing: .8px;
+}
+
+main {
+    margin: 0 auto;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+#start {
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+}
+
+#start .footer {
+    position: absolute;
+    bottom: 32px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+button {
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+}
+
+.options {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.options button {
+    width: calc(50% - 10px);
+    font-size: 20px;
+}
+
+.options button:last-of-type {
+    margin-left: 6px;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    overflow:hidden;
+    height: 0 !important;
+    width: 0 !important;
+}
+
+#primes-container {
+    height: 100vh;
+    overflow-y: hidden;
+    position: relative;
+}
+
+.primes-footer {
+    position: absolute;
+    width: 100%;
+    bottom: 12px;
+}
+
+.primes-footer .footer-content {
+    height: 102px;
+}
+
+.primes-footer .result.hidden {
+    display: none;
+}
+
+#primes-container .result {
+    color: white;
+    padding: 12px;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+#primes-container p {
+    margin: 0;
+}
+
+#primes-container .result span,
+#primes-container .result i {
+    vertical-align: middle;
+}
+
+.correct {
+    background-color: #4CAF50;
+}
+
+.wrong {
+    background-color: #F44336;
+}
+
+#prime-factors {
+    float: left;
+}
+
+#prime-next {
+    font-size: 20px;
+    float: right;
+    padding-right: 20px !important;
+}
+
+#prime-next i.right {
+    margin-left: 10px !important;
+}
+
+@media screen and (max-width: 530px) {
+    main,
+    #primes-container {
+        max-width: 97%;
+        margin: 0 auto;
+    }
+
+    #primes-container .content {
+        margin-top: 0;
+    }
+
+    .primes-footer {
+        position: absolute;
+        width: 100%;
+        bottom: 12px;
+    }
+}
