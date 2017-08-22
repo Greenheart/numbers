@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
             question: undefined,
             recent: [],
             min: 2,
-            max: 200    // IDEA: Change this for new difficulties
+            max: 197    // IDEA: Change this for new difficulties
         }
     }
 
@@ -92,7 +92,7 @@ function getRandomOddInt (min, max) {
 }
 
 function randomInt (min, max) {
-    return Math.floor((Math.random() * max + 1) + min)
+    return Math.floor((Math.random() * max) + min)
 }
 
 function isPrime (n) {
