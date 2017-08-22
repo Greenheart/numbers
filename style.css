@@ -75,6 +75,11 @@ button {
     display: none;
 }
 
+#prime-factors {
+    display: inline-block;
+    width: 100%;
+}
+
 #primes-container .result {
     color: white;
     padding: 12px;
