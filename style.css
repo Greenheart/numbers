@@ -64,7 +64,7 @@ button {
 .primes-footer {
     position: absolute;
     width: 100%;
-    bottom: 12px;
+    bottom: 64px;
 }
 
 .primes-footer .footer-content {
@@ -125,8 +125,6 @@ button {
     }
 
     .primes-footer {
-        position: absolute;
-        width: 100%;
         bottom: 12px;
     }
 }
