@@ -166,6 +166,6 @@ button {
 
 @media screen and (max-width: 370px) {
     #primes-container .result span {
-        font-size: 13px;
+        font-size: 12px;
     }
 }
