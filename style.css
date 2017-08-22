@@ -80,6 +80,7 @@ button {
     padding: 12px;
     font-size: 18px;
     margin-bottom: 12px;
+    height: 54px;
 }
 
 #primes-container p {
@@ -87,7 +88,8 @@ button {
 }
 
 #primes-container .result span,
-#primes-container .result i {
+#primes-container .result i,
+#primes-container .result button {
     vertical-align: middle;
 }
 
@@ -104,13 +106,16 @@ button {
 }
 
 #prime-next {
-    font-size: 20px;
+    color: white;
     float: right;
-    padding-right: 20px !important;
+    padding: 0 10px;
+    display: inline;
 }
 
 #prime-next i.right {
-    margin-left: 10px !important;
+    font-size: 24px !important;
+    margin-left: 0 !important;
+    margin-top: -4px;
 }
 
 @media screen and (max-width: 530px) {
@@ -126,5 +131,39 @@ button {
 
     .primes-footer {
         bottom: 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    i.left {
+        margin-right: 6px !important;
+    }
+
+    #primes-container .result span {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 410px) {
+    #primes-container div.result {
+        padding: 6px;
+    }
+
+    #primes-container div.result p {
+        margin-top: 6px;
+    }
+
+    button#prime-next i.right {
+        margin-top: -4px;
+    }
+
+    #primes-container .result span {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    #primes-container .result span {
+        font-size: 13px;
     }
 }
