@@ -110,12 +110,18 @@ button {
     float: right;
     padding: 0 10px;
     display: inline;
+    margin-top: -2px;
+}
+
+#prime-next:hover,
+#prime-next:active {
+    background-color: #64B5F6 !important;
 }
 
 #prime-next i.right {
     font-size: 24px !important;
     margin-left: 0 !important;
-    margin-top: -4px;
+    margin-top: -2px;
 }
 
 @media screen and (max-width: 530px) {
@@ -151,10 +157,6 @@ button {
 
     #primes-container div.result p {
         margin-top: 6px;
-    }
-
-    button#prime-next i.right {
-        margin-top: -4px;
     }
 
     #primes-container .result span {
