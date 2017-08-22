@@ -61,6 +61,48 @@ button {
     position: relative;
 }
 
+#primes-container .stats {
+    bottom: 180px;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+}
+
+#streak i,
+#percentage i {
+    display: inline;
+    margin-left: 0 !important;
+}
+
+
+#streak > span > span,
+#percentage > span > span {
+    display: inline-block;
+    margin-top: 6px;
+}
+
+#streak {
+    font-size: 12px;
+    margin-left: 32px;
+    display: inline-block;
+    width: 70px;
+}
+
+#percentage {
+    font-size: 12px;
+    margin-right: 32px;
+    display: inline-block;
+    width: 70px;
+}
+
+#percentage i {
+    color: #ffeb3b;
+}
+
+#streak i {
+    color: #ffb74d;
+}
+
 .primes-footer {
     position: absolute;
     width: 100%;
@@ -143,6 +185,10 @@ button {
 
     .primes-footer {
         bottom: 12px;
+    }
+
+    #primes-container .stats {
+        bottom: 125px;
     }
 }
 
