@@ -34,13 +34,11 @@ document.addEventListener('DOMContentLoaded', function () {
     var infoIcon = find('#info')
     primeYes.addEventListener('click', answer.bind(null, true))
     primeNo.addEventListener('click', answer.bind(null, false))
-    primeNext.addEventListener('click', function () {
-        primeOrNot()
-    })
+    primeNext.addEventListener('click', primeOrNot)
 
     function primeOrNot () {
-        hide(primeResult)
         hide(primeResultFooter)
+        hide(primeResult)
         show(primeNo.parentElement)
         hide(infoIcon)
         hide(checkIcon)
