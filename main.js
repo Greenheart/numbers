@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // TODO: Add a back button to get back to the main menu withough reloading.
 
 
     multiplicationButton.addEventListener('click', function () {
@@ -43,8 +44,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var multiplicationCheckIcon = find('#multiplication-container .result i.check')
     var multiplicationInfoIcon = find('#multiplication-container .result i.info')
     var multiplicationResultText = find('#multiplication-container .result span')
-    var multiplicationPercentage = find('#multiplication-container #percentage > span > span')
-    var multiplicationStreak = find('#multiplication-container #streak > span > span')
+    var multiplicationPercentage = find('#multiplication-container .percentage > span > span')
+    var multiplicationStreak = find('#multiplication-container .streak > span > span')
     var multiplicationInput = multiplicationAnswer.firstElementChild
     var multiplicationNext = find('#multiplication-next')
     multiplicationAnswer.addEventListener('submit', function (event) {
@@ -115,13 +116,13 @@ document.addEventListener('DOMContentLoaded', function () {
     var primeResultText = find('#primes-container .result span')
     var primeResultFooter = find('#primes-container .result-footer')
     var primeFactors = find('#prime-factors')
-    var solutionStreak = find('#streak > span > span')
-    var solutionPercentage = find('#percentage > span > span')
+    var solutionStreak = find('#primes-container .streak > span > span')
+    var solutionPercentage = find('#primes-container .percentage > span > span')
     var primeYes = find('#prime-yes')
     var primeNo = find('#prime-no')
     var primeNext = find('#prime-next')
-    var checkIcon = find('#check')
-    var infoIcon = find('#info')
+    var checkIcon = find('#primes-container i.check')
+    var infoIcon = find('#primes-container i.info')
     primeYes.addEventListener('click', answer.bind(null, true))
     primeNo.addEventListener('click', answer.bind(null, false))
     primeNext.addEventListener('click', primeOrNot)

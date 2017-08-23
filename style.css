@@ -80,44 +80,44 @@ button {
     width: 100%;
 }
 
-#streak i,
-#percentage i {
+.streak i,
+.percentage i {
     display: inline;
     margin-left: 0 !important;
     margin-right: 6px !important;
 }
 
 
-#streak > span > span,
-#percentage > span > span {
+.streak > span > span,
+.percentage > span > span {
     display: inline-block;
     margin-top: 6px;
 }
 
-.stats.wide #streak,
-.stats.wide #percentage {
+.stats.wide .streak,
+.stats.wide .percentage {
     width: 100px;
 }
 
-#streak {
+.streak {
     font-size: 12px;
     margin-left: 32px;
     display: inline-block;
     width: 70px;
 }
 
-#percentage {
+.percentage {
     font-size: 12px;
     margin-right: 32px;
     display: inline-block;
     width: 70px;
 }
 
-#percentage i {
+.percentage i {
     color: #ffeb3b;
 }
 
-#streak i {
+.streak i {
     color: #ffb74d;
 }
 
