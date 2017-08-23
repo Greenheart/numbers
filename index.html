@@ -7,6 +7,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="multiplication.css">
         <title>Numbers</title>
     </head>
     <body>
@@ -14,11 +15,53 @@
             <section id="start">
                 <h1>Numbers</h1>
                 <p>Select a game mode</p>
-                <button class="btn" id="gamemode-primes">Primes < 200</button>
+
+                <div class="gamemodes">
+                    <button class="btn" id="gamemode-primes">Primes < 200</button>
+                    <button class="btn" id="gamemode-multiplication">Multiplication</button>
+                </div>
+
                 <div class="footer">
                     <small>
                         <p>&copy; 2017 MUG: Matematiker utan gränser</p>
                     </small>
+                </div>
+            </section>
+
+            <section id="multiplication-container" class="hidden">
+                <h1>Multiply</h1>
+                <h2 class="question">9 x 9</h2>
+
+                <form id="multiplication-answer">
+                    <input type="number" placeholder="Your answer">
+                </form>
+
+                <div class="stats wide">
+                    <div id="percentage" title="% Correct">
+                        <span>
+                            <i class="material-icons small left">star</i>
+                            <span>% Correct</span>
+                        </span>
+                    </div>
+                    <div id="streak" title="Streak">
+                        <span>
+                            <i class="material-icons small left">whatshot</i>
+                            <span>Streak</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="multiplication-footer">
+                    <div class="footer-content">
+                        <div class="result">
+                            <p>
+                                <i class="material-icons small left check">check</i>
+                                <i class="material-icons small left info">info_outline</i>
+                                <span></span>
+                                <button id="multiplication-next" class="btn btn-flat"><i class="material-icons right large">arrow_forward</i></button>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </section>
 

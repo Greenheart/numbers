@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Init start screen
     var startScreen = find('#start')
     var primesButton = find('#gamemode-primes')
-
+    var multiplicationButton = find('#gamemode-multiplication')
 
     var game = {
         primes: {
@@ -14,7 +14,91 @@ document.addEventListener('DOMContentLoaded', function () {
             totalQuestions: 0,
             min: 2,
             max: 197    // IDEA: Change this for new difficulties
+        },
+        multiplication: {
+            question: undefined,
+            answer: undefined,
+            recent: [],
+            streak: 0,
+            correct: 0,
+            totalQuestions: 0,
+            min: 1,
+            max: 13     // IDEA: Allow user to choose min and max values. Maybe use a slider to select a range of two points?
         }
+    }
+
+
+
+    multiplicationButton.addEventListener('click', function () {
+        hide(startScreen)
+        show(multiplicationContainer)
+        multiplication()
+    })
+
+    // Init multiplication
+    var multiplicationContainer = find('#multiplication-container')
+    var multiplicationQuestion = find('#multiplication-container .question')
+    var multiplicationAnswer = find('#multiplication-answer')
+    var multiplicationResult = find('#multiplication-container .result')
+    var multiplicationCheckIcon = find('#multiplication-container .result i.check')
+    var multiplicationInfoIcon = find('#multiplication-container .result i.info')
+    var multiplicationResultText = find('#multiplication-container .result span')
+    var multiplicationPercentage = find('#multiplication-container #percentage > span > span')
+    var multiplicationStreak = find('#multiplication-container #streak > span > span')
+    var multiplicationInput = multiplicationAnswer.firstElementChild
+    var multiplicationNext = find('#multiplication-next')
+    multiplicationAnswer.addEventListener('submit', function (event) {
+        event.preventDefault()
+        onMultiplicationAnswer(multiplicationInput.value)
+
+        multiplicationInput.focus()
+    })
+    multiplicationNext.addEventListener('click', multiplication)
+
+    function onMultiplicationAnswer (guess) {
+        multiplicationResult.classList.remove('correct', 'wrong')
+        if (game.multiplication.totalQuestions === 1) {
+            // This is used when displaying tooltips.
+            find('.stats.wide').classList.remove('wide')
+        }
+
+        if (Number(guess) === game.multiplication.answer) {
+            game.multiplication.correct++
+            game.multiplication.streak++
+            multiplicationResultText.innerText = 'Correct!'
+            multiplicationResult.classList.add('correct')
+            show(multiplicationCheckIcon)
+        } else {
+            game.multiplication.streak = 0
+            multiplicationResultText.innerText = 'The answer was ' + game.multiplication.answer
+            multiplicationResult.classList.add('wrong')
+            show(multiplicationInfoIcon)
+        }
+
+        multiplicationPercentage.innerText = (game.multiplication.correct / game.multiplication.totalQuestions).toFixed(2) * 100 + '%'
+        multiplicationStreak.innerText = game.multiplication.streak
+
+        show(multiplicationResult)
+    }
+
+    function multiplication () {
+        multiplicationInput.value = ''
+        hide(multiplicationResult)
+        hide(multiplicationCheckIcon)
+        hide(multiplicationInfoIcon)
+
+
+        // TODO: Add to recent numbers to game.multiplication.recent
+            // Keep an array of both factors for each question
+            // Only keep last 10 or so (see how its done in prime)
+        // Verify that only new combinations are chosen
+        var n1 = randomInt(game.multiplication.min, game.multiplication.max)
+        var n2 = randomInt(game.multiplication.min, game.multiplication.max)
+
+        game.multiplication.question = n1 + ' x ' + n2
+        game.multiplication.answer = n1 * n2
+        game.multiplication.totalQuestions++
+        multiplicationQuestion.innerText = game.multiplication.question
     }
 
     primesButton.addEventListener('click', function () {

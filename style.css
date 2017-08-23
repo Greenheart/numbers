@@ -27,6 +27,18 @@ h1 {
     font-size: 36px;
 }
 
+.gamemodes {
+    width: 70%;
+    max-width: 200px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.gamemodes button {
+    width: 100%;
+    margin: 6px 0;
+}
+
 button {
     cursor: pointer;
     font-size: 16px;

@@ -1,0 +1,77 @@
+#multiplication-container {
+    height: 100vh;
+    overflow-y: hidden;
+    position: relative;
+}
+
+#multiplication-container p {
+    margin: 0;
+}
+
+#multiplication-answer {
+    width: 70%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+#multiplication-answer input {
+    text-align: center;
+    font-size: 28px;
+}
+
+#multiplication-answer input::placeholder {
+    font-size: .6em;
+}
+
+#multiplication-container .result {
+    color: white;
+    padding: 12px;
+    font-size: 18px;
+    margin-bottom: 12px;
+    height: 54px;
+}
+
+#multiplication-container .result span,
+#multiplication-container .result i,
+#multiplication-container .result button {
+    vertical-align: middle;
+}
+
+#multiplication-next {
+    color: white;
+    float: right;
+    padding: 0 10px;
+    display: inline;
+    margin-top: -2px;
+}
+
+#multiplication-next:hover,
+#multiplication-next:active {
+    background-color: #64B5F6 !important;
+}
+
+#multiplication-next i.right {
+    font-size: 24px !important;
+    margin-left: 0 !important;
+    margin-top: -2px;
+}
+
+.multiplication-footer {
+    position: absolute;
+    width: 100%;
+    bottom: 64px;
+}
+
+.multiplication-footer .footer-content {
+    height: 102px;
+}
+
+.multiplication-footer .result.hidden {
+    display: none;
+}
+
+@media screen and (max-width: 480px) {
+    #multiplication-answer input {
+        font-size: 32px;
+    }
+}
