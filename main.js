@@ -51,7 +51,8 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault()
         onMultiplicationAnswer(multiplicationInput.value)
 
-        multiplicationInput.focus()
+        // Remove focus to close the on-screen keyboard for mobile devices.
+        multiplicationInput.blur()
     })
     multiplicationNext.addEventListener('click', multiplication)
 
@@ -173,6 +174,8 @@ document.addEventListener('DOMContentLoaded', function () {
             primeResultText.innerText += game.primes.question + ' is NOT a prime number.'
             primeFactors.innerText = 'Prime factors: ' + getPrimeFactors(game.primes.question).join(', ')
         }
+
+        // TODO: why don't the stats work for primes? Maybe the ids need to be replaced with classes?
         solutionPercentage.innerText = (game.primes.correct / game.primes.totalQuestions).toFixed(2) * 100 + '%'
         solutionStreak.innerText = game.primes.streak
 
