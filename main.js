@@ -98,43 +98,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 })
 
-function getRandomOddInt (min, max) {
-    var n = randomInt(min, max)
-    while (n % 2 === 0 || n % 5 === 0) {
-        n = randomInt(min, max)
-    }
-    return n
-}
-
-function randomInt (min, max) {
-    return Math.floor((Math.random() * max) + min)
-}
-
-function isPrime (n) {
-    return window.primesBelow1000.indexOf(n) > -1
-}
-
-function getPrimeFactors (remainder) {
-    var factors = []
-
-    for (var i = 2; i <= remainder; i++) {
-        while ((remainder % i) === 0) {
-            factors.push(i)
-            remainder /= i
-        }
-    }
-
-    return factors
-}
-
-function hide (element) {
-    element.classList.add('hidden')
-}
-
-function show (element) {
-    element.classList.remove('hidden')
-}
-
 window.primesBelow1000 = [
     2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
     73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151,
