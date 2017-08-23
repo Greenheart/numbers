@@ -70,8 +70,73 @@
     display: none;
 }
 
+@media screen and (max-width: 530px) {
+    main,
+    #multiplication-container {
+        max-width: 97%;
+        margin: 0 auto;
+    }
+
+    #multiplication-container .content {
+        margin-top: 0;
+    }
+
+    .multiplication-footer {
+        bottom: 12px;
+    }
+
+    #multiplication-container .stats {
+        bottom: 125px;
+    }
+}
+
 @media screen and (max-width: 480px) {
+    i.left {
+        margin-left: 6px !important;
+        margin-right: 6px !important;
+    }
+
+    #multiplication-container .result span {
+        font-size: 15px;
+    }
+
     #multiplication-answer input {
         font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 410px) {
+    #multiplication-container div.result {
+        padding: 6px;
+    }
+
+    #multiplication-container div.result p {
+        margin-top: 6px;
+    }
+
+    #multiplication-container .result span {
+        font-size: 14px;
+    }
+
+    .result > p > i.left {
+        margin-left: 6px !important;
+        margin-right: 0 !important;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    #multiplication-container .result span {
+        font-size: 11.4px;
+    }
+
+    main,
+    #multiplication-container {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 315px) {
+    #multiplication-container .result span {
+        font-size: 10.8px;
     }
 }
