@@ -96,21 +96,21 @@ button {
 
 .stats.wide .streak,
 .stats.wide .percentage {
-    width: 100px;
+    width: 106px;
 }
 
 .streak {
     font-size: 12px;
     margin-left: 32px;
     display: inline-block;
-    width: 70px;
+    width: 80px;
 }
 
 .percentage {
     font-size: 12px;
     margin-right: 32px;
     display: inline-block;
-    width: 70px;
+    width: 80px;
 }
 
 .percentage i {
