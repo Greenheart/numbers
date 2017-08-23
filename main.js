@@ -97,10 +97,10 @@ document.addEventListener('DOMContentLoaded', function () {
         var n1 = randomInt(game.multiplication.min, game.multiplication.max)
         var n2 = randomInt(game.multiplication.min, game.multiplication.max)
 
-        game.multiplication.question = n1 + ' x ' + n2
+        game.multiplication.question = n1 + ' &times; ' + n2
         game.multiplication.answer = n1 * n2
         game.multiplication.totalQuestions++
-        multiplicationQuestion.innerText = game.multiplication.question
+        multiplicationQuestion.innerHTML = game.multiplication.question
     }
 
     primesButton.addEventListener('click', function () {
