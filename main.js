@@ -1,4 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
+    var pages = {
+        primes: {
+            url: 'primes',
+            callback: function () {
+                show(primesContainer)
+                primeOrNot()
+            }
+        },
+        multiplication: {
+            url: 'multiplication',
+            callback: function () {
+                show(multiplicationContainer)
+                multiplication()
+            }
+        }
+    }
     var find = document.querySelector.bind(document)
     // Init start screen
     var startScreen = find('#start')
@@ -34,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
         hide(startScreen)
         show(multiplicationContainer)
         multiplication()
+        window.location.hash = pages.multiplication.url
     })
 
     // Init multiplication
@@ -107,6 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
         hide(startScreen)
         show(primesContainer)
         primeOrNot()
+        window.location.hash = pages.primes.url
     })
 
     // Init primes
@@ -185,6 +203,12 @@ document.addEventListener('DOMContentLoaded', function () {
         show(primeResult)
     }
 })
+
+window.onhashchange = function (event) {
+    ga('send', 'pageview', {
+        page: location.pathname + location.search  + location.hash
+    })
+}
 
 window.primesBelow1000 = [
     2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
