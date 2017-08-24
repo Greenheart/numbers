@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
         primes: {
             url: 'primes',
             init: function () {
+                resetPrimeState()
                 leaveStartScreen()
                 show(primesContainer)
                 primeOrNot()
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
         multiplication: {
             url: 'multiplication',
             init: function () {
+                resetMultiplicationState()
                 leaveStartScreen()
                 show(multiplicationContainer)
                 multiplication()
@@ -27,26 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var multiplicationButton = find('#gamemode-multiplication')
 
     var game = {
-        // TODO: move init of game state objects into the respective init-functions above.
-        primes: {
-            question: undefined,
-            recent: [],
-            streak: 0,
-            correct: 0,
-            totalQuestions: 0,
-            min: 2,
-            max: 197    // IDEA: Change this for new difficulties
-        },
-        multiplication: {
-            question: undefined,
-            answer: undefined,
-            recent: [],
-            streak: 0,
-            correct: 0,
-            totalQuestions: 0,
-            min: 1,
-            max: 13     // IDEA: Allow user to choose min and max values. Maybe use a slider to select a range of two points?
-        }
+        primes: undefined,
+        multiplication: undefined
     }
 
     homeButton.addEventListener('click', function (event) {
@@ -200,6 +184,37 @@ document.addEventListener('DOMContentLoaded', function () {
         hide(primeNo.parentElement)
         show(primeResultFooter)
         show(primeResult)
+    }
+
+    function resetPrimeState () {
+        game.primes = {
+            question: undefined,
+            recent: [],
+            streak: 0,
+            correct: 0,
+            totalQuestions: 0,
+            min: 2,
+            max: 197    // IDEA: Change this for new difficulties
+        }
+
+        solutionPercentage.innerText = solutionPercentage.dataset.default
+        solutionStreak.innerText = solutionStreak.dataset.default
+    }
+
+    function resetMultiplicationState () {
+        game.multiplication = {
+            question: undefined,
+            answer: undefined,
+            recent: [],
+            streak: 0,
+            correct: 0,
+            totalQuestions: 0,
+            min: 1,
+            max: 13     // IDEA: Allow user to choose min and max values. Maybe use a slider to select a range of two points?
+        }
+
+        multiplicationPercentage.innerText = multiplicationPercentage.dataset.default
+        multiplicationStreak.innerText = multiplicationStreak.dataset.default
     }
 
     function showStartScreen () {
