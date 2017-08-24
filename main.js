@@ -198,6 +198,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 })
 
+// Replace any previous hashes before watching for navigation changes.
+history.replaceState({}, document.title, location.href.substr(0, location.href.length - location.hash.length))
 window.onhashchange = function (event) {
     ga('send', 'pageview', {
         page: location.pathname + location.search  + location.hash
