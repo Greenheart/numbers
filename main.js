@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Reser previous results
         primeResult.classList.remove('correct', 'wrong')
         if (game.primes.totalQuestions === 1) {
-            // This is used when displaying tooltips.
+            // This class is used when displaying tooltips.
             find('.stats.wide').classList.remove('wide')
         }
         primeResultText.innerText = ''
@@ -177,7 +177,6 @@ document.addEventListener('DOMContentLoaded', function () {
             primeFactors.innerText = 'Prime factors: ' + getPrimeFactors(game.primes.question).join(', ')
         }
 
-        // TODO: why don't the stats work for primes? Maybe the ids need to be replaced with classes?
         solutionPercentage.innerText = (game.primes.correct / game.primes.totalQuestions).toFixed(2) * 100 + '%'
         solutionStreak.innerText = game.primes.streak
 
