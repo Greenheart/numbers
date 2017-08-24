@@ -2,16 +2,20 @@ document.addEventListener('DOMContentLoaded', function () {
     var pages = {
         primes: {
             url: 'primes',
-            callback: function () {
+            init: function () {
+                hide(startScreen)
                 show(primesContainer)
                 primeOrNot()
+                window.location.hash = pages.primes.url
             }
         },
         multiplication: {
             url: 'multiplication',
-            callback: function () {
+            init: function () {
+                hide(startScreen)
                 show(multiplicationContainer)
                 multiplication()
+                window.location.hash = pages.multiplication.url
             }
         }
     }
@@ -46,12 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // TODO: Add a back button to get back to the main menu withough reloading.
 
 
-    multiplicationButton.addEventListener('click', function () {
-        hide(startScreen)
-        show(multiplicationContainer)
-        multiplication()
-        window.location.hash = pages.multiplication.url
-    })
+    multiplicationButton.addEventListener('click', pages.multiplication.init)
 
     // Init multiplication
     var multiplicationContainer = find('#multiplication-container')
@@ -120,12 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
         multiplicationQuestion.innerHTML = game.multiplication.question
     }
 
-    primesButton.addEventListener('click', function () {
-        hide(startScreen)
-        show(primesContainer)
-        primeOrNot()
-        window.location.hash = pages.primes.url
-    })
+    primesButton.addEventListener('click', pages.primes.init)
 
     // Init primes
     var primesContainer = find('#primes-container')
