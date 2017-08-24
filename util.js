@@ -34,3 +34,8 @@ function hide (element) {
 function show (element) {
     element.classList.remove('hidden')
 }
+
+function clearHash () {
+    // Change URL without page reload.
+    history.replaceState({}, document.title, location.href.substr(0, location.href.length - location.hash.length))
+}

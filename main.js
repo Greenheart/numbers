@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
         primes: {
             url: 'primes',
             init: function () {
-                hide(startScreen)
+                leaveStartScreen()
                 show(primesContainer)
                 primeOrNot()
                 window.location.hash = pages.primes.url
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
         multiplication: {
             url: 'multiplication',
             init: function () {
-                hide(startScreen)
+                leaveStartScreen()
                 show(multiplicationContainer)
                 multiplication()
                 window.location.hash = pages.multiplication.url
@@ -22,10 +22,12 @@ document.addEventListener('DOMContentLoaded', function () {
     var find = document.querySelector.bind(document)
     // Init start screen
     var startScreen = find('#start')
+    var homeButton = find('#home-button')
     var primesButton = find('#gamemode-primes')
     var multiplicationButton = find('#gamemode-multiplication')
 
     var game = {
+        // TODO: move init of game state objects into the respective init-functions above.
         primes: {
             question: undefined,
             recent: [],
@@ -47,7 +49,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // TODO: Add a back button to get back to the main menu withough reloading.
+    homeButton.addEventListener('click', function (event) {
+        event.preventDefault()
+        showStartScreen()
+    })
 
 
     multiplicationButton.addEventListener('click', pages.multiplication.init)
@@ -196,10 +201,23 @@ document.addEventListener('DOMContentLoaded', function () {
         show(primeResultFooter)
         show(primeResult)
     }
+
+    function showStartScreen () {
+        clearHash()
+        hide(multiplicationContainer)
+        hide(primesContainer)
+        show(startScreen)
+        hide(homeButton)
+    }
+
+    function leaveStartScreen () {
+        hide(startScreen)
+        show(homeButton)
+    }
 })
 
 // Replace any previous hashes before watching for navigation changes.
-history.replaceState({}, document.title, location.href.substr(0, location.href.length - location.hash.length))
+clearHash()
 window.onhashchange = function (event) {
     ga('send', 'pageview', {
         page: location.pathname + location.search  + location.hash

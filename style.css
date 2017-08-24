@@ -2,6 +2,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
     letter-spacing: .8px;
+    position: relative;
 }
 
 main {
@@ -43,6 +44,29 @@ button {
     cursor: pointer;
     font-size: 16px;
     border: none;
+}
+
+header {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}
+
+#home-button {
+    display: block;
+    position: relative;
+    top: .5vw;
+    left: 1vw;
+    height: 48px;
+    width: 48px;
+    margin: 0;
+    padding: 0;
+}
+
+#home-button i {
+    font-size: 48px;
 }
 
 .options {
